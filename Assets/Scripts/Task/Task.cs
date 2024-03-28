@@ -32,7 +32,7 @@ namespace Task
             {
                 StartCoroutine(TaskCompleted(selectedPanel));
             }
-            else
+            else 
             {
                 selectedPanel.WrongAnswer();
             }
@@ -42,7 +42,7 @@ namespace Task
         {
             selectedPanel.RightAnswer();
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
 
             TaskComplete?.Invoke();
         }

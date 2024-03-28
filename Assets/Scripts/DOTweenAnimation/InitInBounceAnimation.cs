@@ -14,5 +14,10 @@ namespace DOTweenAnimation
         {
             transform.DOScale(1, 1).SetEase(Ease.OutBounce);
         }
+
+        private void OnDestroy()
+        {
+            DOTween.Kill(transform);
+        }
     }
 }

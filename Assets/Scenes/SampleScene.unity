@@ -585,7 +585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _choicePanelPrefab: {fileID: 4016775564486987866, guid: c4d3ad842a515a648a750dad0804007f, type: 3}
-  _task: {fileID: 1397917501}
 --- !u!1 &712968810
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,6 +937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1838290492}
   - component: {fileID: 1838290493}
+  - component: {fileID: 1838290494}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -971,12 +971,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a704c0cca386d439de5dc833df2fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCellsNumber: {fileID: 11400000, guid: 8b9510fab2853e1499552eda792466cd, type: 2}
   _objectsToFindData:
   - {fileID: 11400000, guid: a9a4d6071124aef48ba0949a80556c57, type: 2}
   - {fileID: 11400000, guid: 5126f866dbe17a44b91a160b495e50d3, type: 2}
   _task: {fileID: 1397917501}
   _grid: {fileID: 609430002}
+--- !u!114 &1838290494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838290491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdab78030a3c0af4c84355fb07100353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelCellsNumber: {fileID: 11400000, guid: 8b9510fab2853e1499552eda792466cd, type: 2}
   _restartScreen: {fileID: 79519761}
 --- !u!1 &1847838565
 GameObject:

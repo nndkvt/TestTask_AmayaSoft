@@ -9,12 +9,19 @@ namespace DOTweenAnimation
 
         [SerializeField] private CanvasGroup _restartButton;
 
+        private Sequence _sequance;
+
         private void OnEnable()
         {
-            var sequance = DOTween.Sequence();
+            _sequance = DOTween.Sequence();
 
-            sequance.Append(_restartBG.DOFade(1, 1));
-            sequance.Append(_restartButton.DOFade(1, 1));
+            _sequance.Append(_restartBG.DOFade(1, 1));
+            _sequance.Append(_restartButton.DOFade(1, 1));
+        }
+
+        private void OnDestroy()
+        {
+            DOTween.Kill(_sequance);
         }
     }
 }

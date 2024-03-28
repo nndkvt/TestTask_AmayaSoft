@@ -1,6 +1,5 @@
 using DOTweenAnimation;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace ChoicePanel
@@ -9,35 +8,41 @@ namespace ChoicePanel
     {
         [SerializeField] private ChoicePanelElementSet _elementImage;
 
-        [SerializeField] private RightWrongChoicePanelElementAnimation _elementAnimation;
+        private RightWrongChoicePanelElementAnimation _elementAnimation;
 
-        [SerializeField] private GameObject _completionStar;
+        private ObjectToFind _panelObject;
 
-        private ObjectToFind _objectToFind;
+        private Task.Task _assignedTask;
 
-        public UnityAction<ChoicePanel> OnClick;
-
-        public void SetObjectToFind(ObjectToFind obj)
+        public void Init(ObjectToFind obj, Task.Task assignedTask)
         {
-            _objectToFind = obj;
+            SetObjectToFind(obj);
 
-            _elementImage.SetElement(_objectToFind);
+            _assignedTask = assignedTask;
+
+            _elementAnimation = _elementImage.gameObject.GetComponent<RightWrongChoicePanelElementAnimation>();
+        }
+
+        private void SetObjectToFind(ObjectToFind obj)
+        {
+            _panelObject = obj;
+
+            _elementImage.SetElement(_panelObject);
         }
 
         public ObjectToFind GetObjectToFind()
         {
-            return _objectToFind;
+            return _panelObject;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            OnClick?.Invoke(this);
+            _assignedTask.CheckTaskCompleted(this);
         }
 
         public void RightAnswer()
         {
             _elementAnimation.RightAnswerAnimation();
-            _completionStar.SetActive(true);
         }
 
         public void WrongAnswer()

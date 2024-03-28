@@ -5,11 +5,18 @@ namespace DOTweenAnimation
 {
     public class InitFadeInAnimation : MonoBehaviour
     {
+        CanvasGroup _canvasGroup;
+
         private void Awake()
         {
-            CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+            _canvasGroup = GetComponent<CanvasGroup>();
 
-            canvasGroup.DOFade(1, 1.5f);
+            _canvasGroup.DOFade(1, 1.5f);
+        }
+
+        private void OnDestroy()
+        {
+            DOTween.Kill(_canvasGroup);
         }
     }
 }
